@@ -62,7 +62,7 @@ pipeline{
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image ravirekha1/amazon:latest > trivyimage.txt"
+                sh "trivy image girish009/amazon:latest > trivyimage.txt"
             }
         }
         stage("deploy_docker"){
