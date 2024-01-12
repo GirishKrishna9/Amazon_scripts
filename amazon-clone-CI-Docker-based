@@ -54,8 +54,8 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                        sh "docker build -t amazon ."
-                       sh "docker tag amazon ravirekha1/amazon:latest "
-                       sh "docker push ravirekha1/amazon:latest "
+                       sh "docker tag amazon girish009/amazon:latest "
+                       sh "docker push girish009/amazon:latest "
                     }
                 }
             }
@@ -69,7 +69,7 @@ pipeline{
             steps{
                 sh "docker stop amazon || true"  // Stop the container if it's running, ignore errors
                 sh "docker rm amazon || true" 
-                sh "docker run -d --name amazon -p 4000:3000 ravirekha1/amazon:latest"
+                sh "docker run -d --name amazon -p 4000:3000 girish009/amazon:latest"
             }
         }
     }
